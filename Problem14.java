@@ -1,66 +1,43 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 public class Problem14 {
     public String longestCommonPrefix(String[] strs) {
-        Set<String> prefixes = getPrefix(strs);
-
         if (strs.length == 1)
             return strs[0];
-
-        Map<String, Integer> countingPrefix = new HashMap<>();
-        for (String prefix : prefixes) {
-            int count = 0;
-            for (String str : strs) {
-                if (str.startsWith(prefix))
-                    count++;
-            }
-            countingPrefix.put(prefix, count);
+        String commonPrefix = "";
+        int end = (strs[0].length() < strs[1].length()) ? strs[0].length() : strs[1].length();
+        String firstStr = strs[0];
+        String secondStr = strs[1];
+        for (int j = 0; j < end; j++) {
+            if (firstStr.charAt(j) == secondStr.charAt(j))
+                commonPrefix += secondStr.charAt(j);
+            else
+                break;
         }
 
-        // finding the max prefix
-        int maxPrefix = 0;
-        String resultPrefix = "";
-        for (String prefix : prefixes) {
-            if (maxPrefix < countingPrefix.get(prefix)) {
-                maxPrefix = countingPrefix.get(prefix);
-                resultPrefix = prefix;
-            }
-        }
-
-        if (maxPrefix == 1)
+        if (commonPrefix == "")
             return "";
 
-        return resultPrefix;
-    }
-
-    public Set<String> getPrefix(String[] strs) {
-        Set<String> prefixes = new HashSet<>();
-        for (String str : strs) {
-            String prefix = "";
-            for (int i = 0; i < str.length(); i++) {
-                if (str.charAt(i) == 'a' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u'
-                        || str.charAt(i) == 'e') {
-                    if (prefix.length() == 0)
-                        prefix += str.charAt(i);
+        for (int i = 2; i < strs.length; i = i + 1) {
+            int endLength = (strs[i].length() < commonPrefix.length()) ? strs[i].length() : commonPrefix.length();
+            firstStr = strs[i];
+            String newPrefix = "";
+            for (int j = 0; j < endLength; j++) {
+                if (firstStr.charAt(j) == commonPrefix.charAt(j))
+                    newPrefix += secondStr.charAt(j);
+                else
                     break;
-
-                }
-
-                prefix += str.charAt(i);
             }
-            prefixes.add(prefix);
-
+            if (newPrefix.isEmpty())
+                return "";
+            commonPrefix = newPrefix;
         }
-        return prefixes;
+        return commonPrefix;
+
     }
 
     public static void main(String[] args) {
-        String[] strs = { "flower", "flow", "flight" };
+        String[] strs = { "baab", "bacb", "b", "cbc" };
         Problem14 problem14 = new Problem14();
         System.out.println(problem14.longestCommonPrefix(strs));
-        ;
     }
 }
