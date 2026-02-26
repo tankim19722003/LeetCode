@@ -1,6 +1,8 @@
+package problem20;
+
 import java.util.Stack;
 
-class Problem20 {
+class Solution {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -40,7 +42,7 @@ class Problem20 {
 
     public static void main(String[] args) {
         String s = "){";
-        System.out.println(new Problem20().isValid(s));
+        System.out.println(new Solution().isValid(s));
 
     }
 }

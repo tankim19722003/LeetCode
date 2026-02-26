@@ -1,4 +1,6 @@
-public class Problem33 {
+package problem33;
+
+public class Solution {
     public int searchInsert(int[] nums, int target) {
 
         int left = 0;
@@ -22,7 +24,7 @@ public class Problem33 {
     public static void main(String[] args) {
         int nums[] = { 1, 3, 5, 6 };
         int target = 2;
-        Problem33 p = new Problem33();
+        Solution p = new Solution();
         System.out.println(p.searchInsert(nums, target));
     }
 }

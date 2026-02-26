@@ -1,4 +1,6 @@
-class problem67 {
+package problem67;
+
+class Solution {
     public String addBinary(String a, String b) {
 
         int i = a.length() - 1;
@@ -71,7 +73,7 @@ class problem67 {
     public static void main(String[] args) {
         String a = "1101";
         String b = "10";
-        problem67 problem67 = new problem67();
+        Solution problem67 = new Solution();
         String total = problem67.addBinary(a, b);
         System.out.println(total);
     }

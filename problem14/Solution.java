@@ -1,5 +1,6 @@
+package problem14;
 
-public class Problem14 {
+public class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 1)
             return strs[0];
@@ -37,7 +38,7 @@ public class Problem14 {
 
     public static void main(String[] args) {
         String[] strs = { "baab", "bacb", "b", "cbc" };
-        Problem14 problem14 = new Problem14();
+        Solution problem14 = new Solution();
         System.out.println(problem14.longestCommonPrefix(strs));
     }
 }

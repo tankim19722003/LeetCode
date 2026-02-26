@@ -1,4 +1,6 @@
-public class Problem58 {
+package problem58;
+
+public class Solution {
 //    public static int lengthOfLastWord(String s) {
 //        for (int i = s.length() - 1; i >= 0 ;i--) {
 //            if (s.charAt(i) != ' ') {
@@ -20,7 +22,7 @@ public class Problem58 {
 
     public static void main(String[] args) {
         String s = "   fly me   to   the moon  ";
-        int lengthOfLastWord = Problem58.lengthOfLastWord(s);
+        int lengthOfLastWord = Solution.lengthOfLastWord(s);
         System.out.println(lengthOfLastWord);
     }
 
